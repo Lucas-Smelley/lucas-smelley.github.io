@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Lucas Kelley</title>
+    <style>
+        body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 20px;
+        }
+
+        h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        }
+
+        p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        text-align: center;
+        margin-bottom: 30px;
+        }
+
+        a.button {
+        background-color: #0077ff;
+        color: white;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+        background-color: #005fcc;
+        }
+
+        footer {
+        margin-top: 40px;
+        font-size: 0.9rem;
+        color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>👋 Hey, I’m Lucas</h1>
+    <p>Welcome to my personal website. I'm a developer, creator, and problem-solver passionate about building cool things and learning new tech.</p>
+
+    <a href="mailto:your@email.com" class="button">Contact Me</a>
+
+    <footer>
+        © <span id="year"></span> Lucas Kelley. All rights reserved.
+    </footer>
+
+    <script>
+        // Automatically update footer year
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
