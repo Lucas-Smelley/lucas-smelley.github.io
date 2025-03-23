@@ -1,53 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Under Construction</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0f172a;
-      color: #f1f5f9;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.2rem;
-      color: #94a3b8;
-    }
-    .loader {
-      margin-top: 2rem;
-      border: 8px solid #1e293b;
-      border-top: 8px solid #3b82f6;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg);}
-      100% { transform: rotate(360deg);}
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LucasK</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Fredoka&family=Orbitron&family=Rajdhani&family=Press+Start+2P&family=Metal+Mania&family=UnifrakturCook&display=swap" rel="stylesheet">
+
 </head>
 <body>
-  <h1>🚧 Under Construction 🚧</h1>
-  <p>this johns gettin built, hopefully done someday</p>
-  <div class="loader"></div>
+    <canvas id="trailCanvas"></canvas>
+
+    <div class="name-plate">
+        <span>L</span>
+        <span>U</span>
+        <span>C</span>
+        <span>A</span>
+        <span>S</span>
+    </div>
+
+    <div class="center-name">
+        <h2 id="name2">Mr.Smelley</h2>
+        <h2 id="name3">Achileus-Nucletorius</h2>
+        <h2 id="name1">FALCON</h2>
+    </div>
+
+    <!-- Floating icons -->
+    <a href="death-booty.html" class="icon" id="death-booty">
+        <span class="death-booty-label">DEATH BOOTY</span>
+    </a>
+    <a href="#" class="icon" id="icon2">B</a>
+    <a href="#" class="icon" id="icon3">C</a>
+    <a href="#" class="icon" id="gravityToggle">gravity</a>
+
+    <!-- Matter.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <script src="js/main.js"></script>
+
 </body>
 </html>

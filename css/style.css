@@ -1,0 +1,149 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #0d1117;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.name-plate{
+    font-size: 6rem;
+    font-family: sans-serif;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: rgba(255, 144, 179, 0.2);;
+
+}
+
+.name-plate span{
+    display: inline-block;
+    font-weight: bolder;
+    animation: mover 3s ease-in-out infinite;
+    margin: 0 15px;
+}
+
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+        color: rgba(255, 144, 179, 0.2);
+        text-shadow: 0 0 30px rgba(255, 144, 179, 0.1);
+    }
+    50% {
+        transform: translateY(30px);
+        color: rgba(255, 144, 179, 0.5);
+        text-shadow: 0 0 30px rgba(255, 144, 179, 1);
+    }
+    100% {
+        transform: translateY(0);
+        color: rgba(255, 144, 179, 0.2);
+        text-shadow: 0 0 30px rgba(255, 144, 179, 0.1);
+    }
+}
+
+.name-plate span:nth-child(1) {
+    animation-delay: 0.25s;
+}
+.name-plate span:nth-child(2) {
+    animation-delay: 0.5s;
+}
+.name-plate span:nth-child(3) {
+    animation-delay: 0.75s;
+}
+.name-plate span:nth-child(4) {
+    animation-delay: 1s;
+}
+.name-plate span:nth-child(5) {
+    animation-delay: 1.25s;
+}
+
+
+.center-name {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.center-name h2{
+    margin: 10px 0;
+}
+
+#name1 {
+    font-family: 'Orbitron', 'Rajdhani', sans-serif;
+    font-size: 2.7rem;
+    color: rgba(94, 234, 212, 0.7); 
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(174, 255, 243, 1);
+}
+
+#name2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 2.5rem;
+    color: rgba(250, 204, 21, 0.7); 
+    text-transform: uppercase;
+    text-shadow: 4px 4px 2px rgba(250, 204, 21, 0.5);
+}
+
+#name3 {
+    font-family: 'Metal Mania', 'UnifrakturCook', fantasy;
+    font-size: 3rem;
+    color: rgba(167, 139, 250, 0.8); 
+    letter-spacing: 1px;
+    text-shadow: 4px 4px 6px rgba(167, 139, 250, 1);
+}
+
+
+
+.icon {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: rgba(60, 127, 204, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2rem;
+    position: absolute;
+    text-decoration: none;
+    z-index: 2;
+    box-shadow: 0 0 15px rgba(187, 213, 244, 0.8),
+                0 0 30px rgba(21, 72, 130, 0.6);
+}
+
+#trailCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; 
+    pointer-events: none; /* allow clicks through it */
+}
+
+#death-booty{
+    background: rgba(22, 48, 77, 0.9);
+    background-image: url('/assets/images/death-booty.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 15px rgba(48, 136, 245, 0.8),
+                0 0 30px rgba(21, 72, 130, 0.6);
+}
+
+.death-booty-label {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-shadow: 0 0 3px black, 0 0 6px black;
+    pointer-events: none;
+    padding: 4px;
+    font-weight: 900;
+    font-family: 'Metal Mania', 'UnifrakturCook', fantasy;
+}
