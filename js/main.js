@@ -30,29 +30,36 @@ Runner.run(Runner.create(), engine);
 const iconIds = ['death-booty', 'colorful-icon', 'instagram-icon', 'gravityToggle'];
 const icons = [];
 
-iconIds.forEach((id, i) => {
+iconIds.forEach((id) => {
     const el = document.getElementById(id);
-    const x = 150 + i * 150;
-    const y = 100;
+
+    // Get the actual size of the icon element
+    const rect = el.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+
+    // Random spawn within bounds (leaving space from edges)
+    const padding = 100;
+    const x = Math.random() * (window.innerWidth - padding * 2) + padding;
+    const y = Math.random() * (window.innerHeight - padding * 2) + padding;
 
     // Special case: Instagram icon uses a rounded rectangle body
     const isInstagram = id === 'instagram-icon';
     const body = isInstagram
-        ? Bodies.rectangle(x, y, 100, 120, {
-                restitution: 1,
-                friction: 0,
-                frictionAir: 0,
-                chamfer: { radius: 20 }, // creates rounded corners
-                render: { visible: false }
-            })
-            : Bodies.circle(x, y, 75, {
-                restitution: 1,
-                friction: 0,
-                frictionAir: 0,
-                render: { visible: false }
+        ? Bodies.rectangle(x, y, width, height, {
+            restitution: 1,
+            friction: 0,
+            frictionAir: 0,
+            chamfer: { radius: 20 },
+            render: { visible: false }
+        })
+        : Bodies.circle(x, y, width / 2, {
+            restitution: 1,
+            friction: 0,
+            frictionAir: 0,
+            render: { visible: false }
         });
 
-    // Set random initial velocity
     const speedX = (Math.random() * 2 + 2) * (Math.random() < 0.5 ? -1 : 1);
     const speedY = (Math.random() * 2 + 2) * (Math.random() < 0.5 ? -1 : 1);
 
@@ -81,27 +88,65 @@ iconIds.forEach((id, i) => {
     }
 });
 
-// Add walls
-const walls = [
-    Bodies.rectangle(width / 2, 0, width, 20, { isStatic: true, restitution: 1 }),
-    Bodies.rectangle(width / 2, height, width, 20, { isStatic: true, restitution: 1 }),
-    Bodies.rectangle(0, height / 2, 20, height, { isStatic: true, restitution: 1 }),
-    Bodies.rectangle(width, height / 2, 20, height, { isStatic: true, restitution: 1 })
-];
+let wallBodies = [];
 
-World.add(world, walls);
+function createWalls() {
+    // Remove existing walls from the world
+    if (wallBodies.length) {
+        wallBodies.forEach(wall => World.remove(world, wall));
+    }
 
-// Sync DOM with physics bodies
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    wallBodies = [
+        Bodies.rectangle(w / 2, 0, w, 20, { isStatic: true, restitution: 1 }),               // Top
+        Bodies.rectangle(w / 2, h, w, 20, { isStatic: true, restitution: 1 }),               // Bottom
+        Bodies.rectangle(0, h / 2, 20, h, { isStatic: true, restitution: 1 }),               // Left
+        Bodies.rectangle(w, h / 2, 20, h, { isStatic: true, restitution: 1 })                // Right
+    ];
+
+    World.add(world, wallBodies);
+}
+
+let bumperBodies = [];
+
+function createBumpers() {
+    // Remove existing bumpers
+    if (bumperBodies.length) {
+        bumperBodies.forEach(b => World.remove(world, b));
+        bumperBodies = [];
+    }
+
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    // Top & Bottom bumpers
+    for (let x = 100; x < w; x += 300) {
+        bumperBodies.push(
+        Bodies.circle(x, 30, 10, { isStatic: true, restitution: 1 }),
+        Bodies.circle(x, h - 30, 10, { isStatic: true, restitution: 1 })
+        );
+    }
+
+    // Left & Right bumpers
+    for (let y = 100; y < h; y += 300) {
+        bumperBodies.push(
+        Bodies.circle(30, y, 10, { isStatic: true, restitution: 1 }),
+        Bodies.circle(w - 30, y, 10, { isStatic: true, restitution: 1 })
+        );
+    }
+
+    World.add(world, bumperBodies);
+}
+
+// Update DOM element position to match physics body
 Events.on(engine, 'afterUpdate', () => {
     icons.forEach(({ el, body }) => {
-        const isInstagram = el.id === 'instagram-icon';
+        const rect = el.getBoundingClientRect();
+        el.style.left = `${body.position.x - rect.width / 2}px`;
+        el.style.top = `${body.position.y - rect.height / 2}px`;
 
-        // Use half width/height for Instagram's rectangle, or radius for circles
-        const offset = isInstagram ? 50 : 50;
-        el.style.left = `${body.position.x - offset}px`;
-        el.style.top = `${body.position.y - offset}px`;
-
-        // Maintain speed when gravity is off
         if (engine.gravity.y === 0) {
             const vx = body.velocity.x;
             const vy = body.velocity.y;
@@ -122,27 +167,6 @@ Events.on(engine, 'afterUpdate', () => {
 });
 
 
-
-// Create bumper pegs near the edges
-const bumpers = [];
-
-// Top & Bottom edge bumpers
-for (let x = 100; x < width; x += 300) {
-    bumpers.push(
-        Bodies.circle(x, 30, 10, { isStatic: true, restitution: 1 }),
-        Bodies.circle(x, height - 30, 10, { isStatic: true, restitution: 1 })
-    );
-}
-
-// Left & Right edge bumpers
-for (let y = 100; y < height; y += 300) {
-    bumpers.push(
-        Bodies.circle(30, y, 10, { isStatic: true, restitution: 1 }),
-        Bodies.circle(width - 30, y, 10, { isStatic: true, restitution: 1 })
-    );
-}
-
-World.add(world, bumpers);
 
 const canvas = document.getElementById('trailCanvas');
 const ctx = canvas.getContext('2d');
@@ -184,4 +208,21 @@ function renderTrails() {
     requestAnimationFrame(renderTrails);
 }
 
+
+
+// Initial call
+createWalls();
+createBumpers();
+
+
+// Recreate walls when screen is resized
+window.addEventListener('resize', () => {
+    createWalls();
+    createBumpers();
+
+
+    // Optional: resize Matter.js render canvas if you're using Render
+    render.canvas.width = window.innerWidth;
+    render.canvas.height = window.innerHeight;
+});
 renderTrails();
