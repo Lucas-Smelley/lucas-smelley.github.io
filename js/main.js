@@ -27,7 +27,7 @@ Runner.run(Runner.create(), engine);
 
 
 // Icon setup (including gravity toggle)
-const iconIds = ['death-booty', 'icon2', 'icon3', 'gravityToggle'];
+const iconIds = ['death-booty', 'colorful-icon', 'instagram-icon', 'gravityToggle'];
 const icons = [];
 
 iconIds.forEach((id, i) => {
@@ -35,13 +35,24 @@ iconIds.forEach((id, i) => {
     const x = 150 + i * 150;
     const y = 100;
 
-    const body = Bodies.circle(x, y, 75, {
-        restitution: 1,
-        friction: 0,
-        frictionAir: 0,
-        render: { visible: false }
-    });
+    // Special case: Instagram icon uses a rounded rectangle body
+    const isInstagram = id === 'instagram-icon';
+    const body = isInstagram
+        ? Bodies.rectangle(x, y, 100, 120, {
+                restitution: 1,
+                friction: 0,
+                frictionAir: 0,
+                chamfer: { radius: 20 }, // creates rounded corners
+                render: { visible: false }
+            })
+            : Bodies.circle(x, y, 75, {
+                restitution: 1,
+                friction: 0,
+                frictionAir: 0,
+                render: { visible: false }
+        });
 
+    // Set random initial velocity
     const speedX = (Math.random() * 2 + 2) * (Math.random() < 0.5 ? -1 : 1);
     const speedY = (Math.random() * 2 + 2) * (Math.random() < 0.5 ? -1 : 1);
 
@@ -56,17 +67,16 @@ iconIds.forEach((id, i) => {
     // Special: gravity toggle click
     if (id === 'gravityToggle') {
         el.addEventListener('click', (e) => {
-        e.preventDefault();
-        const gravityOn = engine.gravity.y === 0;
-        engine.gravity.y = gravityOn ? 1 : 0;
+            e.preventDefault();
+            const gravityOn = engine.gravity.y === 0;
+            engine.gravity.y = gravityOn ? 1 : 0;
 
+            // Update frictionAir for all icons
+            icons.forEach(({ body }) => {
+                body.frictionAir = gravityOn ? 0.01 : 0;
+            });
 
-        // Update frictionAir for all icons
-        icons.forEach(({ body }) => {
-            body.frictionAir = gravityOn ? 0.01 : 0;
-        });
-
-        console.log(`Gravity is now ${gravityOn ? 'ON' : 'OFF'}`);
+            console.log(`Gravity is now ${gravityOn ? 'ON' : 'OFF'}`);
         });
     }
 });
@@ -84,28 +94,33 @@ World.add(world, walls);
 // Sync DOM with physics bodies
 Events.on(engine, 'afterUpdate', () => {
     icons.forEach(({ el, body }) => {
-        el.style.left = `${body.position.x - 75}px`;
-        el.style.top = `${body.position.y - 75}px`;
-        
+        const isInstagram = el.id === 'instagram-icon';
+
+        // Use half width/height for Instagram's rectangle, or radius for circles
+        const offset = isInstagram ? 50 : 50;
+        el.style.left = `${body.position.x - offset}px`;
+        el.style.top = `${body.position.y - offset}px`;
+
+        // Maintain speed when gravity is off
         if (engine.gravity.y === 0) {
             const vx = body.velocity.x;
             const vy = body.velocity.y;
             const speed = Math.sqrt(vx * vx + vy * vy);
             const minSpeed = 2;
             const maxSpeed = 3;
-        
+
             if (speed < minSpeed || speed > maxSpeed) {
-                // Normalize velocity and scale to boundary speed
                 const targetSpeed = speed < minSpeed ? minSpeed : maxSpeed;
-                const scale = targetSpeed / (speed || 0.001); // avoid divide-by-zero
+                const scale = targetSpeed / (speed || 0.001);
                 Body.setVelocity(body, {
-                x: vx * scale,
-                y: vy * scale
+                    x: vx * scale,
+                    y: vy * scale
                 });
             }
         }
     });
 });
+
 
 
 // Create bumper pegs near the edges
