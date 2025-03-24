@@ -297,4 +297,15 @@ html, body {
     pointer-events: none;
 }
 
+/* NATHANIEL EGG ICON STYLES */
+
+#nathaniel-egg{
+    background: rgba(22, 48, 77, 0.9);
+    background-image: url('/assets/images/nathaniel-egg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8),
+                0 0 30px rgba(131, 131, 131, 0.6);
+}
 

@@ -27,7 +27,7 @@ Runner.run(Runner.create(), engine);
 
 
 // Icon setup (including gravity toggle)
-const iconIds = ['death-booty', 'colorful-icon', 'instagram-icon', 'gravityToggle'];
+const iconIds = ['death-booty', 'colorful-icon', 'instagram-icon', 'gravityToggle', 'nathaniel-egg'];
 const icons = [];
 
 iconIds.forEach((id) => {
@@ -100,10 +100,10 @@ function createWalls() {
     const h = window.innerHeight;
 
     wallBodies = [
-        Bodies.rectangle(w / 2, 0, w, 20, { isStatic: true, restitution: 1 }),               // Top
-        Bodies.rectangle(w / 2, h, w, 20, { isStatic: true, restitution: 1 }),               // Bottom
-        Bodies.rectangle(0, h / 2, 20, h, { isStatic: true, restitution: 1 }),               // Left
-        Bodies.rectangle(w, h / 2, 20, h, { isStatic: true, restitution: 1 })                // Right
+        Bodies.rectangle(w / 2, 0, w, 20, { isStatic: true, restitution: 1 }),
+        Bodies.rectangle(w / 2, h, w, 20, { isStatic: true, restitution: 1 }),
+        Bodies.rectangle(0, h / 2, 20, h, { isStatic: true, restitution: 1 }),
+        Bodies.rectangle(w, h / 2, 20, h, { isStatic: true, restitution: 1 }) 
     ];
 
     World.add(world, wallBodies);
