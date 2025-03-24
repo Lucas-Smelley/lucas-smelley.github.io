@@ -135,26 +135,63 @@ html, body {
 
 /* DEATH BOOTY ICON STYLES */
 
-#death-booty{
-    background: rgba(22, 48, 77, 0.9);
+#death-booty {
+    width: clamp(60px, 12vw, 100px);
+    height: clamp(60px, 12vw, 100px);
+    border-radius: 50%; 
+    background: rgba(132, 31, 83, 0.9);
     background-image: url('/assets/images/death-booty.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 0 0 15px rgba(48, 136, 245, 0.8),
-                0 0 30px rgba(21, 72, 130, 0.6);
+
+    box-shadow:
+        0 0 15px rgba(182, 20, 80, 0.9),
+        0 0 30px rgba(125, 12, 65, 0.5),
+        inset 0 0 20px rgba(255, 0, 85, 0.2);
+
+    border: 4px solid black; 
+    animation: deathPulse 2s ease-in-out infinite;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
+
+
 .death-booty-label {
-    color: white;
-    font-weight: bold;
+    white-space: nowrap;
+    color: #ffe6f0;
+    font-weight: 900;
     font-size: clamp(0.5rem, 1.1vw, 1.1rem);
-    text-shadow: 0 0 3px black, 0 0 6px black;
+    text-shadow:
+        0 0 3px black,
+        0 0 6px black,
+        0 0 10px crimson;
     pointer-events: none;
     padding: 4px;
-    font-weight: 900;
-    font-family: 'Metal Mania', 'UnifrakturCook', fantasy;
+    font-family: 'Nosifer', 'Metal Mania', 'UnifrakturCook', fantasy;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
+
+@keyframes deathPulse {
+    0%, 100% {
+        box-shadow:
+        0 0 15px rgba(182, 20, 80, 0.9),
+        0 0 30px rgba(125, 12, 65, 0.5),
+        inset 0 0 20px rgba(255, 0, 85, 0.2);
+    }
+    50% {
+        box-shadow:
+        0 0 25px rgba(255, 40, 100, 1),
+        0 0 50px rgba(255, 0, 85, 0.7),
+        inset 0 0 40px rgba(255, 0, 85, 0.4);
+    }
+}
+
 
 /* GRAVIYT ICON STLES */
 
