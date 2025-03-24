@@ -136,8 +136,8 @@ html, body {
 /* DEATH BOOTY ICON STYLES */
 
 #death-booty {
-    width: clamp(60px, 12vw, 100px);
-    height: clamp(60px, 12vw, 100px);
+    width: clamp(90px, 13vw, 110px);
+    height: clamp(90px, 13vw, 110px);
     border-radius: 50%; 
     background: rgba(132, 31, 83, 0.9);
     background-image: url('/assets/images/death-booty.png');
