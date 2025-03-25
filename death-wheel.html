@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wheel of Death</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #111, #000);
+      color: white;
+      font-family: 'Arial Black', sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .pointer-container {
+      position: relative;
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    #wheel {
+      display: block;
+      border: 10px solid crimson;
+      border-radius: 50%;
+      box-shadow: 0 0 25px crimson, inset 0 0 15px black;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #wheel:hover {
+      transform: scale(1.03);
+    }
+
+    #pointer {
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translateY(-50%) rotate(180deg);
+      width: 0;
+      height: 0;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-left: 30px solid white;
+    }
+
+    button {
+      background: crimson;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px crimson;
+      margin-top: 1rem;
+    }
+
+    #result {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+      color: #ff4e80;
+      font-weight: bold;
+      text-shadow: 0 0 5px black;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      font-size: 1.4rem;
+      color: #ff4e80;
+      font-weight: bold;
+      text-shadow: 0 0 8px black;
+      z-index: 20;
+      display: none;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+      box-shadow: 0 0 30px 10px black;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: crimson; text-shadow: 0 0 10px #ff0040; font-family: 'New Rocker', cursive;">Wheel of Death</h1>
+  <div class="pointer-container" style="position: relative;">
+    <canvas id="wheel" width="500" height="500"></canvas>
+    <div id="pointer"></div>
+    <div id="overlay" class="overlay"></div>
+  </div>
+  <button onclick="spinWheel()">SPIN</button>
+  <div id="result"></div>
+
+  <script>
+    const canvas = document.getElementById('wheel');
+    const ctx = canvas.getContext('2d');
+    const center = canvas.width / 2;
+    const overlay = document.getElementById('overlay');
+
+    const options = [
+      { label: "Go in the river (REALLY BAD)", weight: 1 },
+      { label: "Wear the 'I like men'", weight: 1 },
+      { label: "Getting pantsed", weight: 4 },
+      { label: "Gun to the bollocks", weight: 1 },
+      { label: "Others draw on your hands and nipples...", weight: 3 },
+      { label: "Post Death Booty video", weight: 1 },
+      { label: "Make Death Booty design", weight: 1 },
+      { label: "Make the stickers", weight: 1 },
+      { label: "Make Death Booty poster", weight: 2 },
+      { label: "Eat something spicy", weight: 3 },
+      { label: "Chug a Sprite", weight: 3 },
+      { label: "Eat something sour", weight: 3 },
+      { label: "Free Space", weight: 1 },
+      { label: "Attack a goose", weight: 3 },
+      { label: "Shot of koolaid", weight: 2 },
+      { label: "Energy drink before skate", weight: 1 },
+      { label: "Trip & run", weight: 2 },
+      { label: "Clean the streets", weight: 2 },
+      { label: "Head over poop bin", weight: 1 },
+      { label: "Purple nurple 1", weight: 2 },
+      { label: "Purple nurple 2", weight: 1 },
+      { label: "Purple nurple 3", weight: 1 },
+      { label: "Compliment someone", weight: 1 },
+      { label: "Eff Abel", weight: 1 },
+      { label: "Spin 2 more times", weight: 1 },
+      { label: "Naruto + griddy", weight: 1 }
+    ];
+
+    const metalColors = ["#000", "rgba(182, 20, 80, 1)", "#211a23", "#800000", "#2c1e1e", "#222"];
+    const totalWeight = options.reduce((sum, o) => sum + o.weight, 0);
+    let angleOffset = 0;
+    let spinning = false;
+
+    function drawWheel() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let startAngle = 0;
+      options.forEach((option, i) => {
+        const sliceAngle = (option.weight / totalWeight) * Math.PI * 2;
+        const endAngle = startAngle + sliceAngle;
+
+        ctx.beginPath();
+        ctx.moveTo(center, center);
+        ctx.arc(center, center, center - 10, startAngle + angleOffset, endAngle + angleOffset);
+        ctx.closePath();
+        ctx.fillStyle = metalColors[i % metalColors.length];
+        ctx.fill();
+
+        const midAngle = startAngle + sliceAngle / 2 + angleOffset;
+        ctx.save();
+        ctx.translate(center, center);
+        ctx.rotate(midAngle);
+        ctx.textAlign = 'right';
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 11px Arial';
+        ctx.fillText(option.label, center - 20, 0);
+        ctx.restore();
+
+        startAngle = endAngle;
+      });
+    }
+
+    function spinWheel() {
+      if (spinning) return;
+      overlay.style.display = 'none';
+      overlay.style.opacity = 0;
+      spinning = true;
+      const target = Math.random() * 2 * Math.PI;
+      const spinAmount = 4 * 2 * Math.PI + target;
+      const duration = 5000;
+      const start = performance.now();
+
+      function animate(time) {
+        const elapsed = time - start;
+        const t = Math.min(elapsed / duration, 1);
+        const easeOut = 1 - Math.pow(1 - t, 3);
+        angleOffset = spinAmount * easeOut;
+
+        drawWheel();
+
+        if (t < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          const finalAngle = (2 * Math.PI - (angleOffset % (2 * Math.PI))) % (2 * Math.PI);
+          let sum = 0;
+          let result;
+          for (let opt of options) {
+            const slice = (opt.weight / totalWeight) * (2 * Math.PI);
+            if (finalAngle >= sum && finalAngle < sum + slice) {
+              result = opt.label;
+              break;
+            }
+            sum += slice;
+          }
+          overlay.innerText = result;
+          overlay.style.display = 'block';
+          requestAnimationFrame(() => overlay.style.opacity = 1);
+          spinning = false;
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    canvas.addEventListener('click', () => {
+      if (!spinning && overlay.style.display === 'block') {
+        overlay.style.opacity = 0;
+        setTimeout(() => overlay.style.display = 'none', 300);
+      } else {
+        spinWheel();
+      }
+    });
+
+    drawWheel();
+  </script>
+</body>
+</html>
