@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: 'New Rocker', cursive;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url('/assets/images/db.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.background-image.right {
+    left: 50%;
+    transform: scaleX(-1);
+}
+
+.background-image.left {
+    left: 0;
+}
+
+.center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ff1783;
+    z-index: 1;
+}
+
+.center-text h1 {
+    font-size: 4rem;
+    margin: 0;
+    font-family:  'New Rocker', cursive;
+    text-shadow: 0 0 8px #ff1783, 0 0 10px #000000;
+}
+
+.center-text h2 {
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: #ccc;
+    text-shadow: 0 0 5px black;
+}
+
+.secret-link {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ff1783;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff1783;
+    text-decoration: none;
+    z-index: 2;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #111;
+    color: #ff1783;
+    font-weight: bold;
+    border: 2px solid #ff1783;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    z-index: 2;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ff1783;
+    transition: background 0.2s;
+}
+
+.back-button:hover {
+    background: #2a2a2a;
+}
