@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Death Booty</title>
   <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Butcherman&family=New+Rocker&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="assets/images/db-favicon.ico">
   <style>
     body {
       margin: 0;
@@ -14,6 +15,34 @@
       overflow: hidden;
       position: relative;
       height: 100vh;
+    }
+
+    nav {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 3;
+    }
+
+    nav a {
+      color: #ff1783;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: clamp(0.9rem, 2vw, 1.4rem);
+      text-shadow: 0 0 1px #ff1783, 0 0 2px #d50000;
+      padding: 0.3rem 0.6rem;
+      transition: all 0.3s ease-in-out;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background: #761441;
+      box-shadow: 0 0 10px #ff1783;
     }
 
     .background-image {
@@ -68,7 +97,7 @@
       transform: translateX(-50%);
       color: #ff1783;
       font-weight: bold;
-      text-shadow: 0 0 2px #ff1783;
+      text-shadow: 0 0 5px #ff1783;
       text-decoration: none;
       z-index: 2;
       font-size: clamp(0.8rem, 2vw, 1.2rem);
@@ -84,7 +113,7 @@
       border: 2px solid #ff1783;
       padding: 0.5rem 1rem;
       text-decoration: none;
-      z-index: 2;
+      z-index: 4;
       border-radius: 5px;
       box-shadow: 0 0 10px #ff1783;
       transition: background 0.2s;
@@ -98,10 +127,16 @@
 </head>
 <body>
 
+  <nav>
+    <a href="death-booty.html">Death Booty</a>
+    <a href="#merch">Merch</a>
+    <a href="#clips">Clips</a>
+  </nav>
+
   <div class="background-image left"></div>
   <div class="background-image right"></div>
 
-  <a class="back-button" href="index.html">← Back</a>
+  <a class="back-button" href="index.html">← LK</a>
 
   <div class="center-text">
     <img src="assets/images/DB-Logo.png" alt="Death Booty Logo">
