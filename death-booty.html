@@ -5,21 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Death Booty</title>
   <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Butcherman&family=New+Rocker&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/death-booty.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      font-family: 'New Rocker', cursive;
+      overflow: hidden;
+      position: relative;
+      height: 100vh;
+    }
+
+    .background-image {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background-image: url('assets/images/db.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .background-image.right {
+      left: 50%;
+      transform: scaleX(-1);
+    }
+
+    .background-image.left {
+      left: 0;
+    }
+
+    .center-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #ff1783;
+      z-index: 1;
+      padding: 0 1rem;
+    }
+
+    .center-text img {
+      max-width: 90vw;
+      height: auto;
+    }
+
+    .center-text h2 {
+      font-size: clamp(1rem, 4vw, 2rem);
+      margin-top: 1rem;
+      color: #ccc;
+      text-shadow: 0 0 5px black;
+    }
+
+    .secret-link {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #ff1783;
+      font-weight: bold;
+      text-shadow: 0 0 2px #ff1783;
+      text-decoration: none;
+      z-index: 2;
+      font-size: clamp(0.8rem, 2vw, 1.2rem);
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #111;
+      color: #ff1783;
+      font-weight: bold;
+      border: 2px solid #ff1783;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      z-index: 2;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #ff1783;
+      transition: background 0.2s;
+      font-size: clamp(0.8rem, 2vw, 1.2rem);
+    }
+
+    .back-button:hover {
+      background: #2a2a2a;
+    }
+  </style>
 </head>
 <body>
 
   <div class="background-image left"></div>
   <div class="background-image right"></div>
 
-  <a class="back-button" href="index.html">← LK</a>
+  <a class="back-button" href="index.html">← Back</a>
 
   <div class="center-text">
-    <h1>DEATH BOOTY</h1>
+    <img src="assets/images/DB-Logo.png" alt="Death Booty Logo">
     <h2>HARDCORE SKATING</h2>
   </div>
 
-  <a class="secret-link" href="death-wheel.html">secret wheel</a>
+  <a class="secret-link" href="death-wheel.html">Wheel of Death</a>
 
 </body>
 </html>
