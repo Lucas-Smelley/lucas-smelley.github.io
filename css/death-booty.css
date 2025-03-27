@@ -75,22 +75,3 @@ body {
     z-index: 2;
 }
 
-.back-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: #111;
-    color: #ff1783;
-    font-weight: bold;
-    border: 2px solid #ff1783;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    z-index: 2;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #ff1783;
-    transition: background 0.2s;
-}
-
-.back-button:hover {
-    background: #2a2a2a;
-}

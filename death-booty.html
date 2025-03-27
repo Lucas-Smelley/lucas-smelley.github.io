@@ -23,7 +23,8 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      flex-wrap: wrap;
+      gap: clamp(0.5rem, 2vw, 2rem);
       padding: 1rem 0;
       background: rgba(0, 0, 0, 0.6);
       z-index: 3;
@@ -43,6 +44,16 @@
     nav a:hover {
       background: #761441;
       box-shadow: 0 0 10px #ff1783;
+    }
+
+    #lk-button {
+      color: rgb(144, 9, 92);
+      text-shadow: 0 0 2px #ababab, 0 0 3px #606060;
+    }
+
+    nav #lk-button:hover {
+      background: #303a5c;
+      box-shadow: 0 0 10px #587dc5;
     }
 
     .background-image {
@@ -103,31 +114,12 @@
       font-size: clamp(0.8rem, 2vw, 1.2rem);
     }
 
-    .back-button {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: #111;
-      color: #ff1783;
-      font-weight: bold;
-      border: 2px solid #ff1783;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      z-index: 4;
-      border-radius: 5px;
-      box-shadow: 0 0 10px #ff1783;
-      transition: background 0.2s;
-      font-size: clamp(0.8rem, 2vw, 1.2rem);
-    }
-
-    .back-button:hover {
-      background: #2a2a2a;
-    }
   </style>
 </head>
 <body>
 
   <nav>
+    <a id="lk-button" href="index.html">LK</a>
     <a href="death-booty.html">Death Booty</a>
     <a href="#merch">Merch</a>
     <a href="#clips">Clips</a>
@@ -135,8 +127,6 @@
 
   <div class="background-image left"></div>
   <div class="background-image right"></div>
-
-  <a class="back-button" href="index.html">← LK</a>
 
   <div class="center-text">
     <img src="assets/images/DB-Logo.png" alt="Death Booty Logo">
