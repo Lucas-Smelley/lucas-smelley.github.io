@@ -111,14 +111,14 @@ nav #lk-button:hover {
     font-family: 'New Rocker', cursive;
     text-align: center;
     font-size: clamp(1.5rem, 4vw, 3rem);
-    margin-top: 5rem;
+    margin-top: 8rem;
 }
 
 .pointer-container {
     position: relative;
     max-width: 70vw;
     width: 100%;
-    margin: 0 auto;
+    margin: 2rem auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,7 +126,6 @@ nav #lk-button:hover {
 
 #wheel {
     width: 75%;
-    /* max-width: 40vw; */
     height: auto;
     border: 10px solid crimson;
     border-radius: 50%;
