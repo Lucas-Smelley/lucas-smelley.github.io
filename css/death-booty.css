@@ -54,7 +54,7 @@ nav #lk-button:hover {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.15;
+    opacity: 0.3;
     z-index: 0;
 }
 
