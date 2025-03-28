@@ -4,94 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wheel of Death</title>
-  <style>
-    body {
-      background: linear-gradient(to bottom, #111, #000);
-      color: white;
-      font-family: 'Arial Black', sans-serif;
-      text-align: center;
-      padding: 2rem;
-    }
+  <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Butcherman&family=New+Rocker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/death-booty.css">
 
-    .pointer-container {
-      position: relative;
-      width: 500px;
-      margin: 0 auto;
-    }
-
-    #wheel {
-      display: block;
-      border: 10px solid crimson;
-      border-radius: 50%;
-      box-shadow: 0 0 25px crimson, inset 0 0 15px black;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    #wheel:hover {
-      transform: scale(1.03);
-    }
-
-    #pointer {
-      position: absolute;
-      top: 50%;
-      left: 100%;
-      transform: translateY(-50%) rotate(180deg);
-      width: 0;
-      height: 0;
-      border-top: 20px solid transparent;
-      border-bottom: 20px solid transparent;
-      border-left: 30px solid white;
-    }
-
-    button {
-      background: crimson;
-      color: white;
-      padding: 0.5rem 1rem;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 0 10px crimson;
-      margin-top: 1rem;
-    }
-
-    #result {
-      margin-top: 2rem;
-      font-size: 1.4rem;
-      color: #ff4e80;
-      font-weight: bold;
-      text-shadow: 0 0 5px black;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 1rem 2rem;
-      border-radius: 1rem;
-      font-size: 1.4rem;
-      color: #ff4e80;
-      font-weight: bold;
-      text-shadow: 0 0 8px black;
-      z-index: 20;
-      display: none;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.4s ease-in-out;
-      box-shadow: 0 0 30px 10px black;
-    }
-  </style>
 </head>
 <body>
-  <h1 style="color: crimson; text-shadow: 0 0 10px #ff0040; font-family: 'New Rocker', cursive;">Wheel of Death</h1>
-  <div class="pointer-container" style="position: relative;">
+  <nav>
+    <a id="lk-button" href="index.html">LK</a>
+    <a href="death-booty.html">Death Booty</a>
+    <a href="#merch">Merch</a>
+    <a href="#clips">Clips</a>
+  </nav>
+
+  <h1 class="wheel-text">Wheel of Death</h1>
+  <div class="pointer-container">
     <canvas id="wheel" width="500" height="500"></canvas>
     <div id="pointer"></div>
     <div id="overlay" class="overlay"></div>
   </div>
-  <button onclick="spinWheel()">SPIN</button>
+  <button class="spin-button" onclick="spinWheel()">SPIN</button>
   <div id="result"></div>
 
   <script>

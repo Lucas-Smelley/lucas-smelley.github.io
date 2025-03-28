@@ -3,9 +3,47 @@ body {
     padding: 0;
     background: #000;
     font-family: 'New Rocker', cursive;
-    overflow: hidden;
     position: relative;
     height: 100vh;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(0.5rem, 2vw, 2rem);
+    padding: 1rem 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 3;
+}
+
+nav a {
+    color: #ff1783;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: clamp(0.9rem, 2vw, 1.4rem);
+    text-shadow: 0 0 1px #ff1783, 0 0 2px #d50000;
+    padding: 0.3rem 0.6rem;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background: #761441;
+    box-shadow: 0 0 10px #ff1783;
+}
+
+#lk-button {
+    color: rgb(144, 9, 92);
+    text-shadow: 0 0 2px #ababab, 0 0 3px #606060;
+}
+
+nav #lk-button:hover {
+    background: #303a5c;
+    box-shadow: 0 0 10px #587dc5;
 }
 
 .background-image {
@@ -38,30 +76,20 @@ body {
     text-align: center;
     color: #ff1783;
     z-index: 1;
+    padding: 0 1rem;
 }
 
-.center-text h1 {
-    font-size: 4rem;
-    margin: 0;
-    font-family:  'New Rocker', cursive;
-    text-shadow: 0 0 8px #ff1783, 0 0 10px #000000;
+.center-text img {
+    max-width: 90vw;
+    height: auto;
 }
 
 .center-text h2 {
-    font-size: 2rem;
+    font-size: clamp(1rem, 4vw, 2rem);
     margin-top: 1rem;
     color: #ccc;
     text-shadow: 0 0 5px black;
 }
-
-.center-text h3 {
-    font-size: 1.3rem;
-    font-family: 'Orbitron', 'Rajdhani', sans-serif;
-    margin-top: 1rem;
-    color: rgba(255, 255, 255, 0.2);
-    text-shadow: 0 0 5px black;
-}
-
 
 .secret-link {
     position: absolute;
@@ -73,5 +101,95 @@ body {
     text-shadow: 0 0 5px #ff1783;
     text-decoration: none;
     z-index: 2;
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
 }
 
+/* DEATH WHEEL PAGE */
+
+.wheel-text {
+    color: crimson;
+    text-shadow: 0 0 10px #ff0040;
+    font-family: 'New Rocker', cursive;
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    margin-top: 5rem;
+}
+
+.pointer-container {
+    position: relative;
+    max-width: 70vw;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wheel {
+    width: 75%;
+    /* max-width: 40vw; */
+    height: auto;
+    border: 10px solid crimson;
+    border-radius: 50%;
+    box-shadow: 0 0 25px crimson, inset 0 0 15px black;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+#wheel:hover {
+    transform: scale(1.03);
+}
+
+#pointer {
+    position: absolute;
+    top: 50%;
+    left: 86%;
+    transform: translateY(-50%) rotate(180deg);
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 30px solid white;
+}
+
+.spin-button {
+    background: crimson;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px crimson;
+    margin: 2rem auto;
+    display: block;
+}
+
+#result {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    color: #ff4e80;
+    font-weight: bold;
+    text-shadow: 0 0 5px black;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    color: #ff4e80;
+    font-weight: bold;
+    text-shadow: 0 0 8px black;
+    z-index: 20;
+    display: none;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    box-shadow: 0 0 30px 10px black;
+    text-align: center;
+}
