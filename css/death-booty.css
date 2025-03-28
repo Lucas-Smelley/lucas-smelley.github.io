@@ -15,7 +15,6 @@ nav {
     justify-content: center;
     flex-wrap: wrap;
     gap: clamp(0.5rem, 2vw, 2rem);
-    padding: 1rem 0;
     background: rgba(0, 0, 0, 0.6);
     z-index: 3;
 }
