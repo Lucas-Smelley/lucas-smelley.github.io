@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Death Booty Media</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Butcherman&family=New+Rocker&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="css/death-booty.css"> -->
+  <link rel="icon" type="image/x-icon" href="assets/images/db-favicon.ico">
+  <style>
+    body {
+      background: radial-gradient(circle, #1a1a1a, #000);
+      font-family: 'New Rocker', cursive;
+      color: #f5f5f5;
+      margin: 0;
+      padding-top: 6rem;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: clamp(0.5rem, 2vw, 2rem);
+      padding: 1rem 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10;
+    }
+
+    nav a {
+      color: #ff1783;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: clamp(0.9rem, 2vw, 1.4rem);
+      text-shadow: 0 0 2px #ff1783, 0 0 3px #d50000;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      transition: background 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      background: #761441;
+      box-shadow: 0 0 10px #ff1783;
+    }
+
+    .media-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section-title {
+      font-family: 'Nosifer', cursive;
+      font-size: 2rem;
+      color: #ff4e80;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px #000;
+      border-bottom: 2px solid crimson;
+      padding-bottom: 0.5rem;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .media-grid img,
+    .media-grid video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a id="lk-button" href="index.html">LK</a>
+    <a href="death-booty.html">Death Booty</a>
+    <a href="db-merch.html">Merch</a>
+    <a href="db-media.html">Media</a>
+  </nav>
+
+  <div class="background-image left"></div>
+  <div class="background-image right"></div>
+
+  <div class="media-section">
+    <div class="section-title">Skate Clips</div>
+    <div class="media-grid">
+        Nothin here yet
+      <!-- <video controls src="assets/media/skate1.mp4"></video>
+      <video controls src="assets/media/skate2.mp4"></video> -->
+    </div>
+
+    <div class="section-title">Punishment Videos</div>
+    <div class="media-grid">
+      <video controls src="assets/videos/braden-fall.mp4"></video>
+      <!-- <video controls src="assets/media/punish2.mp4"></video> -->
+    </div>
+
+    <div class="section-title">Pics</div>
+    <div class="media-grid">
+      <img src="assets/images/braden-sticker.jpg" alt="Punishment Pic" />
+      <!-- <img src="assets/images/pic2.jpg" alt="Skating Pic" /> -->
+    </div>
+  </div>
+</body>
+</html>
