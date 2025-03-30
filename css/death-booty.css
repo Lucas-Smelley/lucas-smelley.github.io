@@ -191,3 +191,11 @@ nav #lk-button:hover {
     box-shadow: 0 0 30px 10px black;
     text-align: center;
 }
+
+h1.title{
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: #ffffff;
+    margin: 6rem 0 3rem 0;
+    text-shadow: 0 0 10px #000, 0 0 20px #ffc5e0;
+    text-align: center;
+}
