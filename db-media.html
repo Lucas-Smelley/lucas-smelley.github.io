@@ -18,14 +18,18 @@
 
     .media-icons {
       display: flex;
-      justify-content: center;
-      gap: 2rem;
+      flex-direction: column;
+      gap: 1.5rem;
       margin-bottom: 3rem;
-      flex-wrap: wrap;
+    }
+
+    .media-icon-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .media-icon {
-      background: #250013;
       border: 2px solid crimson;
       border-radius: 10px;
       padding: 2rem;
@@ -34,31 +38,45 @@
       font-size: 1.3rem;
       width: 150px;
       cursor: pointer;
-      box-shadow: 0 0 10px #ff1783;
+      box-shadow: 0 0 5px #ff1783, 0 0 10px #ff1783;
       transition: transform 0.2s, background 0.3s;
+      position: relative;
+    }
+
+    #skate-icon{
+
+    }
+
+    #punishment-icon{
+      
+    }
+
+    #pics-icon{
+      
     }
 
     .media-icon:hover {
       transform: scale(1.05);
-      background: #400020;
+      background: #5a0030;
     }
 
-    .media-icon:nth-child(1) {
-      background: #2b0a1b;
+    .media-icon-wrapper:nth-child(1) .media-icon {
+      background: linear-gradient(145deg, #00190a, #003514);
     }
-    .media-icon:nth-child(2) {
-      background: #1b0a0a;
+    .media-icon-wrapper:nth-child(2) .media-icon {
+      background: linear-gradient(145deg, #301010, #601010);
     }
-    .media-icon:nth-child(3) {
-      background: #0a1b13;
+    .media-icon-wrapper:nth-child(3) .media-icon {
+      background: linear-gradient(145deg, #360016, #510020);
     }
+
 
     .media-grid {
       display: none;
       justify-content: center;
       flex-wrap: wrap;
       gap: 1.5rem;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     .media-grid.active {
@@ -72,6 +90,32 @@
       height: auto;
       border-radius: 8px;
       object-fit: contain;
+      box-shadow: 0 0 10px #ff1783;
+    }
+
+    @media (min-width: 769px) {
+      .media-icons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .media-icon-wrapper {
+        flex-direction: column;
+      }
+
+      .media-grid {
+        display: none !important;
+      }
+
+      .media-block {
+        margin-top: 2rem;
+      }
+
+      .media-grid.single-active {
+        display: flex !important;
+      }
     }
   </style>
 </head>
@@ -82,42 +126,58 @@
     <a href="db-merch.html">Merch</a>
     <a href="db-media.html">Media</a>
   </nav>
-  
+
   <h1 class="title">Clips n Shi</h1>
 
   <div class="media-section">
-    
-
     <div class="media-icons">
-      <div class="media-icon" onclick="showMedia('skate')">Skate</div>
-      <div class="media-icon" onclick="showMedia('punish')">Punishments</div>
-      <div class="media-icon" onclick="showMedia('pics')">Pics</div>
+      <div class="media-icon-wrapper">
+        <div id="skate-icon" class="media-icon" onclick="handleClick('skate-grid')">Skate</div>
+        <div id="skate-grid" class="media-grid">
+          <video controls src="assets/videos/bradenjump.mp4"></video>
+        </div>
+      </div>
+
+      <div class="media-icon-wrapper">
+        <div id="punishment-icon" class="media-icon" onclick="handleClick('punish-grid')">Punishments</div>
+        <div id="punish-grid" class="media-grid">
+          <video controls src="assets/videos/braden-fall.mp4"></video>
+        </div>
+      </div>
+
+      <div class="media-icon-wrapper">
+        <div id="pics-icon" class="media-icon" onclick="handleClick('pics-grid')">Pics</div>
+        <div id="pics-grid" class="media-grid">
+          <img src="assets/images/braden-sticker.jpg" alt="bdon sticker" />
+          <img src="assets/images/evilabel.jpg" alt="abel evil" />
+          <img src="assets/images/nathaniel05.png" alt="nathan 05" />
+          <img src="assets/images/braden-lean.jpg" alt="bdon lean" />
+        </div>
+      </div>
     </div>
 
-    <div id="skate" class="media-grid">
-      <video controls src="assets/videos/bradenjump.mp4"></video>
-    </div>
-
-    <div id="punish" class="media-grid">
-      <video controls src="assets/videos/braden-fall.mp4"></video>
-    </div>
-
-    <div id="pics" class="media-grid">
-      <img src="assets/images/braden-sticker.jpg" alt="bdon sticker" />
-      <img src="assets/images/evilabel.jpg" alt="abel evil" />
-      <img src="assets/images/nathaniel05.png" alt="nathan 05" />
-      <img src="assets/images/braden-lean.jpg" alt="bdon lean" />
-      
+    <div class="media-block">
+      <div id="skate-grid" class="media-grid"></div>
+      <div id="punish-grid" class="media-grid"></div>
+      <div id="pics-grid" class="media-grid"></div>
     </div>
   </div>
 
   <script>
-    function showMedia(type) {
-      const sections = ['skate', 'punish', 'pics'];
-      sections.forEach(id => {
-        document.getElementById(id).classList.remove('active');
-      });
-      document.getElementById(type).classList.add('active');
+    function handleClick(id) {
+      const width = window.innerWidth;
+      const isMobile = width <= 768;
+      const grid = document.querySelectorAll('.media-grid');
+
+      if (isMobile) {
+        const target = document.querySelector(`.media-icon-wrapper #${id}`);
+        target.classList.toggle('active');
+      } else {
+        grid.forEach(el => el.classList.remove('single-active'));
+        const target = document.querySelector(`.media-block #${id}`);
+        target.classList.add('single-active');
+        target.innerHTML = document.querySelector(`.media-icon-wrapper #${id}`).innerHTML;
+      }
     }
   </script>
 </body>
