@@ -140,7 +140,7 @@ html, body {
     height: clamp(90px, 13vw, 110px);
     border-radius: 50%; 
     background: rgba(132, 31, 83, 0.9);
-    background-image: url('/assets/images/death-booty.png');
+    background-image: url('/assets/images/icons/death-booty.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -338,7 +338,7 @@ html, body {
 
 #nathaniel-egg{
     background: rgba(22, 48, 77, 0.9);
-    background-image: url('/assets/images/nathaniel-egg.jpg');
+    background-image: url('/assets/images/icons/nathaniel-egg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ColorFull</title>
+    <link rel="stylesheet" href="/css/colorfull-css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/colorfull-images/favicon.ico">
+    <script src="/js/colorfull-JS/code.js" defer></script>
+    <script src="/js/colorfull-JS/inputHandler.js" defer></script>
+  </head>
+
+
+  <body>
+    <div class="container">
+      <canvas id="mycanvas" width="1000" height="700"></canvas>
+    </div>
+
+    <div id="nav">
+      <a href="/index.html">LK</a>
+      <a href="colorfull-home.html" id="home">Home/Guide</a>
+      <a href="colorfull-about.html">About</a>
+    </div>
+
+    <div id="info">
+      <div id="title">COLORFULL</div>
+      <div id="numOfTreasures">0</div>
+      <div id="zoom">RESIZE WINDOW TO FIT (ctrl scroll or -)</div>
+    </div>
+
+    <button id="settingButton" onclick="showSettings()">Settings</button>
+
+    <div id="settings">
+      <button class="collapsible">Enemies</button>
+      <div class="collapsible-content">
+        <button class="color-change" onclick="enableEnemies()">Enemies on/off</button>
+      </div>
+    
+      <button class="collapsible">Object Colors</button>
+      <div class="collapsible-content">
+        <div class="scroll-menu" id="objectColors">
+          <button class="color-change" onclick="setBasic()" >Basic</button>
+          <button class="color-change" onclick="setBabiesBottom()">Pastel</button>
+          <button class="color-change" onclick="setNeon()">Neon</button>
+          <button class="color-change" onclick="setDark()">Dark Mode</button>
+          <button class="color-change" onclick="setMintWood()">Mint Wood</button>
+          <button class="color-change" onclick="setSunset()">Sunset</button>
+          <button class="color-change" onclick="setNature()">Meh</button>
+          <button class="color-change" onclick="setBHS()">BHS</button>
+          <button class="color-change" onclick="setUSA()">USA RAH!</button>
+          <button class="color-change" onclick="setCoolio()">Coolio</button>
+          <button class="color-change" onclick="setSouthTech()">SouthTech</button>
+          <button class="color-change" onclick="setVoid()">Void</button>
+          <button class="color-change" onclick="setStarryNight()">Starry Night</button>  
+          <button class="color-change" onclick="setHero()">Hero</button>
+          <button class="color-change" onclick="setNightSky()">Night Sky</button>
+          <button class="color-change" onclick="setGalaxy()">Galaxy</button>
+          <button class="color-change" onclick="setAbels()">Abels</button>
+          <button class="color-change" onclick="setSpace()">Space</button>
+          <button class="color-change" onclick="setVintage()">Wine</button>
+          <button class="color-change" onclick="setKelpOcean()">Kelp Ocean</button>
+          <button class="color-change" onclick="setBlack()">Black</button>        </div>
+      </div>
+    
+      <button class="collapsible">Object Shadow Colors</button>
+      <div class="collapsible-content">
+        <div class="scroll-menu" id="blurColors">
+          <button class="color-change" onclick="setBlurDefault()">Default</button>
+          <button class="color-change" onclick="setBlurSamePallete()">Same Pallete</button>
+          <button class="color-change" onclick="setBlurWhite()">White</button>
+          <button class="color-change" onclick="setBlurBlack()">Black</button>        </div>
+      </div>
+    
+      <button class="collapsible">Outside Blur Colors</button>
+      <div class="collapsible-content">
+        <div class="scroll-menu" id="shadowColors">
+          <button class="color-change" onclick="setBasicShadow()" >Basic</button>
+          <button class="color-change" onclick="setCyanToPink()">Black to White</button>
+          <button class="color-change" onclick="setNavyToYellow()">Navy to Yellow</button>
+          <button class="color-change" onclick="setGreenToHotPink()">Green to Hot Pink</button>        </div>
+      </div>
+    
+      <button class="collapsible">Parallax Settings</button>
+      <div class="collapsible-content">
+        <div class="scroll-menu" id="paralaxSettings">
+          <button class="color-change" onclick="setSmallParalax()">Small = Speed</button>
+          <button class="color-change" onclick="setLargeParalax()">Large = Speed</button>
+          <button class="color-change" onclick="setRandomParalax()">Random</button>
+          <button class="color-change" onclick="setExperimentalParalax()">Experimental</button>        </div>
+      </div>
+    
+      <button class="collapsible">Object Move Settings</button>
+      <div class="collapsible-content">
+        <div class="scroll-menu" id="moveSettings">
+          <button class="color-change" onclick="setNormalMove()">Normal</button>
+          <button class="color-change" onclick="setWaveMove()">Wave</button>
+          <button class="color-change" onclick="setSpiralMove()">Spiral</button>        </div>
+      </div>
+    
+      <button class="collapsible">Object Sliders</button>
+      <div class="collapsible-content">
+        <div class="slidecontainer">
+          <input type="range" min="1" max="200" value="30" class="slider" id="sizeRange">
+          <input type="range" min="1" max="100" value="30" class="slider" id="widthRange">
+          <input type="range" min="1" max="100" value="30" class="slider" id="heightRange">
+          <input type="range" min="1" max="100" value="30" class="slider" id="speedRange">
+          <input type="range" min="0" max="15000" value="4000" class="slider" id="objRange">
+          <input type="range" min="0" max="100" value="15" class="slider" id="blurRange">
+          <input type="range" min="0" max="100" value="100" class="slider" id="opacityRange">        </div>
+      </div>
+    
+      <button class="color-change" onclick="randomizeOpacity()">Randomize Opacity</button>
+    </div>
+    
+  </body>
+</html>

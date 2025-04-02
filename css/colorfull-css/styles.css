@@ -1,0 +1,183 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+display: flex;
+flex-direction: column;
+align-items: center;
+font-family: Helvetica;
+position: absolute;
+}
+
+canvas {
+border: 5px solid white;
+background-color: black;
+}
+
+
+/* NAVIGATION */
+#nav {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+#nav a {
+  font-size: 1.1rem;
+  color: white;
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  text-shadow: 0 0 5px white;
+}
+
+#nav a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* INFO & TITLE */
+#info {
+  position: fixed;
+  top: 140px;
+  left: 20px;
+  width: 200px;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+#title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: white;
+  text-shadow: 0 0 8px #ffffff;
+  letter-spacing: 2px;
+}
+
+#numOfTreasures {
+  font-size: 1.2rem;
+  color: #b0e0ff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#zoom {
+  font-size: 0.9rem;
+  color: #ccc;
+  text-shadow: none;
+}
+
+
+/* Settings toggle button */
+#settingButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  text-shadow: 0 0 5px white;
+  cursor: pointer;
+}
+
+#settings {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: 280px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  display: none;
+  backdrop-filter: blur(5px);
+}
+
+/* Collapsible sections */
+.collapsible {
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1rem;
+  text-shadow: 0 0 5px white;
+}
+
+.collapsible:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.collapsible::after {
+  content: '\25BC';
+  float: right;
+  transform: scale(0.8);
+}
+
+.collapsible.active::after {
+  content: "\25B2";
+}
+
+.collapsible-content {
+  display: none;
+  margin: 10px 0;
+}
+
+/* Scrollable button groups */
+.scroll-menu {
+  max-height: 120px;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 10px 0;
+}
+
+.color-change {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  text-shadow: 0 0 5px white;
+}
+
+.color-change:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Sliders */
+.slidecontainer {
+  margin-top: 20px;
+}
+
+.slider {
+  width: 100%;
+  margin: 5px 0;
+}

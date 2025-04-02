@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorFull | Home</title>
+    <link rel="stylesheet" href="/css/colorfull-css/home.css">
+    <link rel="icon" type="image/x-icon" href="/assets/images/colorfull-images/favicon.ico">
+
+</head>
+<body>
+    <header>
+        <h1>ColorFull About Page</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">LK</a></li>
+                <li><a href="colorfull-home.html">Home</a></li>
+                <li class="special"><a href="colorfull.html">Play</a></li>
+                <li><a href="colorfull-about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br>
+
+    <div class="container">
+        <img src="/assets/images/colorfull-images/about.png" alt="image">
+        <div class="title">About the Process of <br>ColorFull</div>
+        <div class="shortDes">Lucas Kelley</div>
+    </div>
+
+    <div class="content-container">
+        <h2>What is it?</h2>
+        <p class="center-text">ColorFull is a game centered around customization. You are able to change most aspects of the game while playing. Experimenting with different settings and trying different combinations of settings to see whats cool is the main purpose of the game. There is also the optional challege of collecting treasures, and avoiding enemies, but these can be disabled.</p>
+        <br>
+    </div>
+    <br>
+    <div class="content-container1">
+        <h2>Video</h2>
+        <p class="table-text">other links:</p>
+        <a class="special" href="https://www.canva.com/design/DAGE9NavHKA/5hQCnNMXMbLQthTM9uN8ZA/watch?utm_content=DAGE9NavHKA&utm_campaign=designshare&utm_medium=link&utm_source=editor" target="_blank">LINK FOR HIGHER QUALITY VIDEO</a>
+        <a class="special" href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">IN DEPTH GUIDE</a>
+        <p class="table-text">Full Colorfull video:</p>
+        <video width="960" height="720" controls>
+            <source src="/assets/videos/colorfull-videos/Colorfull.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="content-container">
+        <h2>Tools</h2>
+
+        <table>
+            <tr>
+                <th>Software</th>
+            </tr>
+            <tr>
+                <td><p class="table-text">ColorFull is made using the javascript tool, Canvas, which is an HTML element that is used to draw graphics, on the fly, using JavaScript. As for my code editor, I used VS Code, because that's what I'm most confortable with.</p></td>
+                <td><img src="/assets/images/colorfull-images/canvas_.png" alt="canvas"></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div class="content-container">
+        <h2>Process</h2>
+        <table>
+            <tr>
+                <th></th>
+                <th>Beginning</th>
+            </tr>
+            <tr>
+                <td><img src="/assets/images/colorfull-images/beginning.png" alt="beginning" ></td>
+                <td><p class="table-text">I started with an idea I had where a player could explore an area trying to find treasures. Originally, I just had a player that could move around, a treasure spawned randomly on the screen, and a number that would be smaller the closer you got to a treasure.</p></td>
+            </tr>
+            <tr>
+                <th>Mid-Way</th>
+            </tr>
+            <tr>
+                <td><p class="table-text">While creating the game's background, which was really just suppose to be a cool visual, I found it so cool that it became the game's main point. This led me to the idea of background customization, starting with color palettes and object scaling. Each new change made me want to add more.
+                </p></td>
+                <td><img src="/assets/images/colorfull-images/mid.png" alt="mid"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <th>End</th>
+            </tr>
+            <tr>
+                <td><img src="/assets/images/colorfull-images/end.png" alt="end" ></td>
+                <td><p class="table-text">As most game projects go, I was having a hard time finding a good place to stop. There was still so much I wanted to add and change, but I needed to stop. I decided to add the ability to change the objects movement, and called it good. I'm happy with where it ended, and may or may not add more things in the future.</p></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div class="content-container">
+        <h2>Logic Expo</h2>
+        <table>
+            <tr>
+                <th></th>
+                <th>Player/Movement</th>
+            </tr>
+            <tr>
+                <td><img src="/assets/images/colorfull-images/movement.png" alt="movement" ></td>
+                <td><p class="table-text">The movement in ColorFull is somewhat of an ilusion. The player never moves outside the radius of a small cirle on the middle of the game screen. It is the objects in the background that are always movement in the opposing direction of the player.</p></td>
+            </tr>
+            <tr>
+                <th>Treasure</th>
+            </tr>
+            <tr>
+                <td><p class="table-text">The treasure is a part of the game that never really changed. It is spawned randomly within a spawnable area that is moved to never be outside the background. There is an invicible circle around it, and when the players distance from the treasure is less then the circles radius, the treasure appears. The code that changes the game shadow depending on the distance from the treasure uses a technique called linear interpolation, or lerp.
+                </p></td>
+                <td><img src="/assets/images/colorfull-images/treasure_expo.png" alt="treasure"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Enemies</th>
+            </tr>
+            <tr>
+                <td><img src="/assets/images/colorfull-images/enemies_expo.png" alt="enemeis" ></td>
+                <td><p class="table-text">The enemies are quite simplistic. They are managed by a class and various spawning functions. They each get a random height, width, and speed, and are spawned every six seconds. Their speed also increases over time. The timer code is done using the SetInterval and SetTimout functions.</p></td>
+            </tr>
+            <tr>
+                <th>Background Objects</th>
+            </tr>
+            <tr>
+                <td><p class="table-text">The background objects function similar to the enemies, but are a bit more complex. There is an Object class that manages drawing the objects and movement, and all the objects are placed in an array. A function then loops through each object in the array, and spawns them and updates their position. There is also another array that stores each objects original info, so the settings don't always make changes based off the current object info.
+                </p></td>
+                <td><img src="/assets/images/colorfull-images/background.png" alt="back"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Settings</th>
+            </tr>
+            <tr>
+                <td><img src="/assets/images/colorfull-images/setting_func.png" alt="settings" ></td>
+                <td><p class="table-text">The settings are each tied to a different function that affect the objects. </p></td>
+            </tr>
+        </table>
+    </div>
+    <div class="content-container">
+        <h2>Successes and Pitfalls</h2>
+
+        <table>
+            <tr>
+                <th>Successes</th>
+            </tr>
+            <tr>
+                <td class="shorten"><p class="table-text">Overall, the game works and runs fine, so that's a great success right there. I was also really happy with how much customization ended up being available inside the game. I definitely learned a lot, and I think it improved my coding a lot.  </p></td>
+                <td><img src="/assets/images/colorfull-images/yay.png" alt="yay"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Pitfalls</th>
+            </tr>
+            <tr>
+                <td ><img src="/assets/images/colorfull-images/boo.png" alt="boo" ></td>
+                <td class="shorten"><p class="table-text">Unless your on a very good computer, if you turn all the settings up to max the game will run very slow, if at all. Not all the settings work perfectly with each other, but it's at a point where no one notices except me. The javascript file I use is very very long, which makes it hard to find and change things.</p></td>
+            </tr>
+        </table>
+    </div>
+    <div class="content-container">
+        <h2>Uncompleted and Future Changes</h2>
+
+        <table>
+            <tr>
+                <th>Not Completed</th>
+            </tr>
+            <tr>
+                <td class="shorten"><p class="table-text">I never was able to get the UI to a good point. It doesn't scale well and it's done in a bad way. For example, opening up all the settings will push them off the page, where you can't see or use them.</p></td>
+                <td><img src="/assets/images/colorfull-images/broken.png" alt="broken"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="content-container">
+        <h2>Thanks</h2>
+        <p class="center-text">Thanks for playin, if you have any questions you can contact me here: <br> super business business email: lskdw07@gmail.com<br>pone: 314-536-3751</p>
+        <br>
+    </div>
+
+    <footer>
+        <p>© 2024 ColorFull</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Death Booty Media</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Butcherman&family=New+Rocker&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/assets/images/db-images/db-favicon.ico">
+  <link rel="stylesheet" href="/css/death-booty.css">
+
+  <style>
+    .media-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .media-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .media-icon-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .media-icon {
+      border: 2px solid crimson;
+      border-radius: 10px;
+      padding: 2rem;
+      color: #ff4e80;
+      font-family: 'Butcherman', cursive;
+      font-size: 1.3rem;
+      width: 150px;
+      cursor: pointer;
+      box-shadow: 0 0 5px #ff1783, 0 0 10px #ff1783;
+      transition: transform 0.2s, background 0.3s;
+      position: relative;
+    }
+
+    .media-icon:hover {
+      transform: scale(1.05);
+      background: #5a0030;
+    }
+
+    .media-icon-wrapper:nth-child(1) .media-icon {
+      background: linear-gradient(145deg, #000703, #002f13);
+    }
+    .media-icon-wrapper:nth-child(2) .media-icon {
+      background: linear-gradient(145deg, #280b0b, #710a0a);
+    }
+    .media-icon-wrapper:nth-child(3) .media-icon {
+      background: linear-gradient(145deg, #24000e, #650029);
+    }
+
+
+    .media-grid {
+      display: none;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .media-grid.active {
+      display: flex;
+    }
+
+    .media-grid img,
+    .media-grid video {
+      max-width: 90%;
+      max-height: 80vh;
+      height: auto;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 0 10px #ff1783;
+    }
+
+    @media (min-width: 769px) {
+      .media-icons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .media-icon-wrapper {
+        flex-direction: column;
+      }
+
+      .media-grid {
+        display: none !important;
+      }
+
+      .media-block {
+        margin-top: 2rem;
+      }
+
+      .media-grid.single-active {
+        display: flex !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a id="lk-button" href="/index.html">LK</a>
+    <a href="death-booty.html">Death Booty</a>
+    <a href="db-merch.html">Merch</a>
+    <a href="db-media.html">Media</a>
+  </nav>
+
+  <h1 class="title">Clips n Shi</h1>
+
+  <div class="media-section">
+    <div class="media-icons">
+      <div class="media-icon-wrapper">
+        <div class="media-icon" onclick="handleClick('skate-grid')">Skate</div>
+        <div id="skate-grid" class="media-grid">
+          <video controls src="/assets/videos/db-videos/bradenjump.mp4"></video>
+          <iframe src="https://www.youtube.com/embed/UZ0YyByy7bA" title="“fortnite” a galaXygas production" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          
+        </div>
+      </div>
+
+      <div class="media-icon-wrapper">
+        <div class="media-icon" onclick="handleClick('punish-grid')">Punishments</div>
+        <div id="punish-grid" class="media-grid">
+          <video controls src="/assets/videos/db-videos/braden-fall.mp4"></video>
+        </div>
+      </div>
+
+      <div class="media-icon-wrapper">
+        <div class="media-icon" onclick="handleClick('pics-grid')">Pics</div>
+        <div id="pics-grid" class="media-grid">
+          <img src="/assets/images/db-images/braden-sticker.jpg" alt="bdon sticker" />
+          <img src="/assets/images/db-images/evilabel.jpg" alt="abel evil" />
+          <img src="/assets/images/db-images/nathaniel05.png" alt="nathan 05" />
+          <img src="/assets/images/db-images/braden-lean.jpg" alt="bdon lean" />
+        </div>
+      </div>
+    </div>
+
+    <div class="media-block">
+      <div id="skate-grid" class="media-grid"></div>
+      <div id="punish-grid" class="media-grid"></div>
+      <div id="pics-grid" class="media-grid"></div>
+    </div>
+  </div>
+
+  <script>
+    function handleClick(id) {
+      const width = window.innerWidth;
+      const isMobile = width <= 768;
+      const grid = document.querySelectorAll('.media-grid');
+
+      if (isMobile) {
+        const target = document.querySelector(`.media-icon-wrapper #${id}`);
+        target.classList.toggle('active');
+      } else {
+        grid.forEach(el => el.classList.remove('single-active'));
+        const target = document.querySelector(`.media-block #${id}`);
+        target.classList.add('single-active');
+        target.innerHTML = document.querySelector(`.media-icon-wrapper #${id}`).innerHTML;
+      }
+    }
+  </script>
+</body>
+</html>

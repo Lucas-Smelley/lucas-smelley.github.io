@@ -1,0 +1,169 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 160%;
+}
+
+.special{
+    font-weight: bold;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+img {
+    width: 50%;
+    box-shadow: 0 0 40px white;
+}
+
+.title {
+    font-size: 300%;
+    text-shadow: 0 0 20px white;
+    font-weight: bold;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px black;
+}
+
+.shortDes{
+    font-size: 100%;
+    text-shadow: 0 0 20px white;
+    font-weight: bold;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px black;
+    padding: 0.5%;
+    color: white;
+}
+
+.content-container{
+    width:50%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #333;
+    box-shadow: 0 0 30px white;
+}
+
+h2{
+    color: white;
+    padding: 3%;
+}
+
+.center-text{
+    text-align: center;
+    padding: 3%;
+    color: white;
+    font-size: 100%;
+    text-shadow: 0 0 20px white;
+    line-height: 1.5;
+}
+table {
+    padding: 0.8%;
+}
+
+th{
+    padding-top: 2%;
+    font-size:140%;
+    color: white;
+    text-shadow: 0 0 20px white;
+}
+
+.table-text{
+    text-align: center;
+    padding: 3%;
+    color: white;
+    font-size: 100%;
+    text-shadow: 0 0 20px white;
+    line-height: 1.5;
+}
+
+table img{
+    width: 100%;
+}
+
+.shorten{
+    width:50%;
+}
+
+.content-container1 {
+    width: 100%; 
+    max-width: 960px;
+    margin: 0 auto; 
+    padding: 20px; 
+    box-sizing: border-box;
+    background-color: #333;
+    box-shadow: 0 0 30px white;
+}
+
+.content-container1 h2 {
+    text-align: center; 
+}
+
+.content-container1 a.special {
+    display: block; 
+    text-align: center; 
+    margin-bottom: 20px; 
+    color: #ffffff; 
+    text-decoration: none;
+    font-size: 110%;
+}
+
+.content-container1 video {
+    width: 100%; 
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.special:hover{
+    background-color: #454545;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+}
+
+
+footer p {
+    margin: 0;
+}
