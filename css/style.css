@@ -2,7 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: #0d1117;
+    background: #0e0f16;
     color: white;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -292,7 +292,7 @@ html, body {
 
 #instagram-icon {
     background-image:
-        url('/assets/images/instagram-icon.png'),
+        url('/assets/images/icons/instagram-icon.png'),
         linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
     background-size: cover, 200% 200%;
     background-position: center, center;
