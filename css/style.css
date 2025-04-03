@@ -354,8 +354,8 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50%;
-    width: clamp(60px, 12vw, 100px);
-    height: clamp(60px, 12vw, 100px);
+    width: clamp(80px, 13vw, 105px);
+    height: clamp(80px, 13vw, 105px);
     position: absolute;
     display: flex;
     justify-content: center;
