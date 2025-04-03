@@ -27,7 +27,7 @@ Runner.run(Runner.create(), engine);
 
 
 // Icon setup (including gravity toggle)
-const iconIds = ['death-booty', 'colorful-icon', 'instagram-icon', 'gravityToggle', 'nathaniel-egg'];
+const iconIds = ['death-booty', 'colorful-icon', 'instagram-icon', 'gravityToggle', 'nathaniel-egg', 'dudle-icon'];
 const icons = [];
 
 iconIds.forEach((id) => {

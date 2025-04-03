@@ -346,3 +346,56 @@ html, body {
                 0 0 30px rgba(131, 131, 131, 0.6);
 }
 
+/* DUDLE ICON STYLES */
+
+#dudle-icon {
+    background-image: url('/assets/images/icons/dudle-icon.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    width: clamp(60px, 12vw, 100px);
+    height: clamp(60px, 12vw, 100px);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:
+        0 0 10px rgba(255, 200, 0, 0.7),
+        0 0 20px rgba(255, 0, 200, 0.4),
+        0 0 30px rgba(0, 255, 200, 0.3);
+    animation: dudlePulse 3s ease-in-out infinite;
+    z-index: 2;
+    overflow: hidden;
+    border: 3px dashed rgba(255, 255, 255, 0.3); /* gives it that drawn aesthetic */
+}
+
+.dudle-label {
+    color: #fff;
+    font-family: 'Comic Neue', 'Gloria Hallelujah', cursive;
+    text-shadow: 
+        0 0 3px #000, 
+        0 0 6px #74005d, 
+        0 0 10px #007058;
+    font-weight: bold;
+    pointer-events: none;
+    text-transform: uppercase;
+}
+
+@keyframes dudlePulse {
+    0%, 100% {
+        box-shadow:
+            0 0 5px rgba(255, 200, 0, 0.7),
+            0 0 10px rgba(255, 0, 200, 0.4),
+            0 0 15px rgba(0, 255, 200, 0.3);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow:
+            0 0 10px rgba(255, 255, 0, 0.8),
+            0 0 15px rgba(255, 0, 150, 0.5),
+            0 0 20px rgba(0, 255, 180, 0.4);
+        transform: scale(1.05);
+    }
+}
+
